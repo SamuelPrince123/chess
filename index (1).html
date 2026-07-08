@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Endgame — A Modern Chess Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="table">
+
+  <header class="masthead">
+    <h1>Endgame</h1>
+    <p class="tagline">A quiet board for two.</p>
+  </header>
+
+  <div class="arena">
+
+    <!-- Black's ledge -->
+    <aside class="ledge ledge--black" aria-label="Pieces captured by White">
+      <span class="ledge-label">White has taken</span>
+      <div class="ledge-tray" id="capturedByWhite"></div>
+    </aside>
+
+    <div class="board-column">
+      <div class="turn-strip">
+        <div class="turn-indicator" id="turnIndicator">
+          <span class="turn-dot"></span>
+          <span id="turnText">White to move</span>
+        </div>
+        <div class="status-banner" id="statusBanner"></div>
+      </div>
+
+      <div class="board-wrap">
+        <div class="coords coords--files" id="coordsFiles"></div>
+        <div class="coords coords--ranks" id="coordsRanks"></div>
+        <div class="board" id="board"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="newGameBtn">New game</button>
+        <button class="btn btn--ghost" id="undoBtn">Undo</button>
+        <button class="btn btn--ghost" id="flipBtn">Flip board</button>
+      </div>
+    </div>
+
+    <!-- White's ledge -->
+    <aside class="ledge ledge--white" aria-label="Pieces captured by Black">
+      <span class="ledge-label">Black has taken</span>
+      <div class="ledge-tray" id="capturedByBlack"></div>
+    </aside>
+
+    <aside class="history-panel">
+      <h2>Moves</h2>
+      <ol class="move-list" id="moveList"></ol>
+    </aside>
+
+  </div>
+</div>
+
+<!-- Promotion modal -->
+<div class="modal-overlay" id="promoOverlay" hidden>
+  <div class="promo-modal">
+    <p class="promo-title">Promote your pawn</p>
+    <div class="promo-options" id="promoOptions"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
